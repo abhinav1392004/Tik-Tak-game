@@ -52,8 +52,9 @@ html, body{
     border-radius: 20px;
     justify-content: center;
     align-items: center;
+    grid-template-rows: repeat(2, 100px);
 }
-.reset-btn{
+#reset-btn{
     background-color: #ffffff;
     color: #2E5077;
     border: none;
@@ -66,7 +67,10 @@ html, body{
     transition: transform 0.6s;
     perspective: 1000px;
 }
-.reset-btn:hover{
+#newGame-btn{
+
+}
+#reset-btn:hover{
     transform: rotateY(180deg);
     background-color: #7bd1c8;
     color: white;
