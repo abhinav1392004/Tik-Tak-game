@@ -12,20 +12,30 @@
         <div class="head">
             <h2 style="color: beige;">Tic Tac Toe</h2>
         </div>
+        
         <div class="main">
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
-            <button class="box"></button>
+            <input class="player-name" type="text", placeholder="Player 'O' name">
+            <div class="boxes">
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+            </div>
+            <input class="player-name" type="text", placeholder="Player 'X' name">
         </div>
         <div class="footer">
-            <button id="reset-btn">Reset</button>
-            <button id="newGame-btn">New game</button>
+            <div class="butt-control">
+                <button id="reset-btn">Reset</button>
+                <button id="newGame-btn">New game</button>
+            </div>
+            <div class="winn-anouncement">
+                <p id="msg" class="hide"></p>
+            </div>
         </div>
     </div>
     <script src="app.js"></script>

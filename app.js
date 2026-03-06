@@ -1,5 +1,8 @@
 let boxes = document.querySelectorAll(".box");
-let resBut = document.querySelector(".reset-btn");
+let resBut = document.querySelector("#reset-btn");
+let newGameBut = document.querySelector("#newGame-btn");
+let players = document.querySelectorAll(".player-name");
+let msg = document.querySelector("#msg");
 
 let turnO = true;
 
@@ -24,7 +27,7 @@ boxes.forEach((box)=>{
             turnO = true;
         }
         box.disabled = true;
-        checkWinner();
+        setTimeout(checkWinner, 50);
     });
 });
 
@@ -35,7 +38,11 @@ const checkWinner = ()=>{
         let pos3v = boxes[patt[2]].innerText;
         if(pos1v!="" && pos2v!="" && pos3v!=""){
             if(pos1v == pos2v && pos2v == pos3v){
-                console.log("winner", pos1v);
+                let winnerName;
+                if(pos1v == "O") winnerName = players[0].value;
+                if(pos1v == "X") winnerName = players[1].value;
+                msg.innerText = "🏆 Winner is " + winnerName + "🎉";
+                msg.classList.remove("hide");
                 disableAll();
             }
         }
@@ -47,3 +54,27 @@ const disableAll = ()=>{
         box.disabled = true;
     })
 }
+
+const resetGame = ()=>{
+    boxes.forEach((box)=>{
+        box.innerText = "";
+        box.disabled = false;
+    });
+    msg.classList.add("hide");
+    turnO = true;
+}
+
+const newGame = ()=>{
+    boxes.forEach((box)=>{
+        box.innerText = "";
+        box.disabled = false;
+    });
+    players.forEach((player)=>{
+        player.value = "";
+    });
+    msg.classList.add("hide");
+    turnO = true;
+}
+
+resBut.addEventListener("click", resetGame);
+newGameBut.addEventListener("click", newGame);
