@@ -17,6 +17,18 @@ const winnPatt = [
     [6, 7, 8]
 ];
 
+const updateGlow = () => {
+    if (turnO) {
+        players[0].classList.add("active-player");
+        players[1].classList.remove("active-player");
+    } else {
+        players[1].classList.add("active-player");
+        players[0].classList.remove("active-player");
+    }
+};
+
+updateGlow();
+
 boxes.forEach((box)=>{
     box.addEventListener("click", ()=>{
         if(turnO){
@@ -27,6 +39,7 @@ boxes.forEach((box)=>{
             turnO = true;
         }
         box.disabled = true;
+        updateGlow();
         setTimeout(checkWinner, 50);
     });
 });
@@ -62,6 +75,7 @@ const resetGame = ()=>{
     });
     msg.classList.add("hide");
     turnO = true;
+    updateGlow();
 }
 
 const newGame = ()=>{
@@ -74,6 +88,7 @@ const newGame = ()=>{
     });
     msg.classList.add("hide");
     turnO = true;
+    updateGlow();
 }
 
 resBut.addEventListener("click", resetGame);
